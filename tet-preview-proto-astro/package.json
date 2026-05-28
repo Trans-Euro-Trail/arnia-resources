@@ -1,0 +1,11 @@
+{
+  "name": "tet-preview-proto-astro",
+  "private": true,
+  "workspaces": ["studio", "web"],
+  "scripts": {
+    "dev:studio": "npm -w studio run dev",
+    "dev:web": "npm -w web run dev",
+    "build:web": "npm -w web run build",
+    "deploy:web": "npm -w web run deploy"
+  }
+}

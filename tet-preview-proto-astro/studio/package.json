@@ -1,0 +1,25 @@
+{
+  "name": "studio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@sanity/vision": "^5.21.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "sanity": "^5.21.0",
+    "styled-components": "^6.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "typescript": "^5.9.3"
+  }
+}
