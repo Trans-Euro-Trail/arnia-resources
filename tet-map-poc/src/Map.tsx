@@ -123,6 +123,10 @@ async function loadTracks(map: maplibregl.Map) {
       feature.geometry.coordinates.forEach((coord) => {
         bounds.extend([coord[0], coord[1]])
       })
+    } else if (feature.geometry.type === 'MultiLineString') {
+      feature.geometry.coordinates.forEach((line) =>
+        line.forEach((coord) => bounds.extend([coord[0], coord[1]]))
+      )
     }
   })
 
