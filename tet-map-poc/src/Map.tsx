@@ -4,7 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { Protocol } from 'pmtiles'
 import { layers, namedFlavor } from '@protomaps/basemaps'
 
-const TET_TILES_URL = 'https://atlas.trans-euro-trail.org/basemap.json'
+const TET_TILES_URL = 'https://tiles.trans-euro-trail.org/basemap.json'
 const GEOJSON_BASE = 'https://trans-euro-trail.org/F'
 
 interface UtilsData {
@@ -40,6 +40,7 @@ export default function Map() {
       },
       center: [2.2137, 46.6034],
       zoom: 5,
+      maxZoom: 12,
     })
 
     mapRef.current = map
@@ -99,7 +100,7 @@ export default function Map() {
 }
 
 async function loadTracks(map: maplibregl.Map) {
-  const res = await fetch(`${GEOJSON_BASE}/simplified.geojson`)
+  const res = await fetch(`${GEOJSON_BASE}/tracks.geojson`)
   const geojson = (await res.json()) as GeoJSON.FeatureCollection
 
   map.addSource('tracks', { type: 'geojson', data: geojson })
