@@ -100,7 +100,7 @@ export default function Map() {
 }
 
 async function loadTracks(map: maplibregl.Map) {
-  const res = await fetch(`${GEOJSON_BASE}/tracks.geojson`)
+  const res = await fetch(`${GEOJSON_BASE}/simplified.geojson`)
   const geojson = (await res.json()) as GeoJSON.FeatureCollection
 
   map.addSource('tracks', { type: 'geojson', data: geojson })
