@@ -31,8 +31,6 @@ Open [http://localhost:3000](http://localhost:3000).
 
 The map auto-fits to the France track bounds on load.
 
-> **Note:** The production tile worker (`tiles.trans-euro-trail.org`) has CORS settings enforced. If your origin isn't allowed, contact Lucas to get it added.
-
 ## Extending to other countries
 
 Change the `GEOJSON_BASE` constant in [src/Map.tsx](src/Map.tsx):
@@ -40,3 +38,10 @@ Change the `GEOJSON_BASE` constant in [src/Map.tsx](src/Map.tsx):
 ```ts
 const GEOJSON_BASE = 'https://trans-euro-trail.org/E' // Spain
 ```
+
+## Data source
+
+This PoC fetches GeoJSON files directly from the current TET Atlas site (`trans-euro-trail.org`) at runtime. This is intentional for a quick proof-of-concept but is not how the new site will work.
+
+The new site (the intended implementation this PoC supports) will not fetch from the Atlas at runtime. Instead, GeoJSON files will be generated at build time as demonstrated and described by [`tet-tracks-simplification/README.md`](../tet-tracks-simplification/README.md). The MapLibre component will receive the file paths as props from Astro and fetch them from the same Cloudflare Worker origin as the page.
+
